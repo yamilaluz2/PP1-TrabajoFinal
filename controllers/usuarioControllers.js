@@ -32,7 +32,6 @@ const update = async(req, res) => {
         if (req.file) {
             avatarPath = `uploads/avatars/${req.file.filename}`
         }
-        //console.log(avatarPath)
 
         // Buscar el usuario por id
         const usuario = await Usuario.findByPk(id);
