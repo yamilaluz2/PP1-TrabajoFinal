@@ -86,7 +86,7 @@ const editPost = async (req, res) => {
                     post: postUpdated
                 });
             } else {
-                res.status(404).send({ message: "No se pudo actualizar el post." });
+                res.status(404).send({ message: "No se encontraron cambios." });
             }
         } else {
             return res.status(403).send({ message: "Solo el creador puede modificar el post." });
