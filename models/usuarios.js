@@ -26,7 +26,7 @@ const Usuario = (sequelize, Sequelize) => {
             allowNull: true,
         },
     }, {
-        timestamps: false,
+        timestamps: true,
         hooks: {
             beforeCreate: async(Usuario) => {
                 if (Usuario.password) {
