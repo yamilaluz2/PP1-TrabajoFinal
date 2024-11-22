@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const register = async(req, res) => {
     const { nombre, mail, nickname, password } = req.body;
+    console.log(req.body);
     if (!nombre || !mail || !nickname || !password) {
         return res.status(400).send({ message: "Faltan datos de completar" });
     }

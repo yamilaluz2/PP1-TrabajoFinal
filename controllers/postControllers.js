@@ -58,7 +58,9 @@ const listPost = async(req, res) => {
 const editPost = async (req, res) => {
     const userId = req.user.id;
     const postId = req.params.id;
+    const {titulo,contenido} = req.body;
     
+
     try {
         const post = await Post.findByPk(postId);
         
@@ -69,7 +71,9 @@ const editPost = async (req, res) => {
         
         if (post.id_usuario === userId) {
 
-            
+            if (!titulo || !contenido){
+                return res.status(400).send({message:"Faltan completar datos."})
+            }
             const update = await Post.update(req.body, {
                 where: { id: postId }
             });
@@ -91,7 +95,6 @@ const editPost = async (req, res) => {
         res.status(500).send({ message: "Error interno del servidor." });
     }
 };
-
         
 
 const deletePost = async (req,res)=>{
